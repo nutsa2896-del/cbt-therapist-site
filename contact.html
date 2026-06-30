@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | MindForward CBT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><strong>MindForward</strong> CBT</div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="cbt-approach.html">CBT Approach</a>
+            <a href="articles.html">Helpful Articles</a>
+            <a href="booking.html">Booking & Fees</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Get in Touch</h2>
+        <p style="color: var(--text-muted);">Have questions regarding session logistics or CBT framework matching before booking? Send a brief message below.</p>
+        
+        <form style="margin-top: 20px;" onsubmit="alert('Thank you for your message. General logistical inquiries are answered within 24 business hours.'); this.reset(); return false;">
+            
+            <!-- Secondary Mandatory Crisis Warning placed right at the input visual view -->
+            <div class="crisis-box">
+                ⚠️ Notice: This form is only for general logistical inquiries. It is not checked 24/7 and must not be used to convey crisis or emergency situations.
+            </div>
+
+            <label for="c-name">Your Name</label>
+            <input type="text" id="c-name" required>
+
+            <label for="c-email">Email Address</label>
+            <input type="email" id="c-email" required>
+
+            <label for="c-msg">Message</label>
+            <textarea id="c-msg" rows="5" required placeholder="Type your non-urgent question here..."></textarea>
+
+            <button type="submit" class="btn" style="margin-top: 25px; width: 100%;">Send Message</button>
+        </form>
+
+        <h2>Office Location Info</h2>
+        <p>For individuals choosing <strong>In-Person Sessions</strong>, the consultation office is centrally located in the city center workspace district. It offers quiet, completely soundproof consultation rooms and a private waiting area.</p>
+        <ul>
+            <li><strong>Address:</strong> [Insert Office Suite, Building Street Address]</li>
+            <li><strong>Transit/Parking:</strong> Free designated street parking is open directly in front of the lobby entrance gate.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>⚠️ <strong>Important:</strong> This website and its contact channels are not monitored 24/7 and are not equipped to handle emergencies. If you are experiencing a mental health crisis, please contact your local emergency services or a crisis hotline immediately.</p>
+    </footer>
+
+</body>
+</html>
