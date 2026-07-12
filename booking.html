@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking & Fees</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <nav>
+        <div class="logo"><strong>Magda</strong> Therapy</div>
+        <div class="menu">
+            <a href="index.html" class="nav-link" data-page="index">Home</a>
+            <div class="dropdown">
+                <span class="dropdown-trigger">Meet Magda ▾</span>
+                <div class="dropdown-content">
+                    <a href="who-am-i.html" class="nav-link" data-page="who-am-i">Who am I and how do we work</a>
+                    <a href="off-the-clock.html" class="nav-link" data-page="off-the-clock">Off the clock</a>
+                    <a href="education.html" class="nav-link" data-page="education">Education & training</a>
+                    <a href="research.html" class="nav-link" data-page="research">Research and publications</a>
+                </div>
+            </div>
+            <a href="focus.html" class="nav-link" data-page="focus">Areas of Focus</a>
+            <a href="expats.html" class="nav-link" data-page="expats">For expats</a>
+            <a href="faqs.html" class="nav-link" data-page="faqs">FAQs</a>
+            <a href="booking.html" class="nav-link" data-page="booking">Booking & Fees</a>
+            <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <section class="booking-highlight">
+                <h2>Book Your Therapeutic Session</h2>
+                <p>Take the first step toward meaningful change. Reserve your personalized CBT session with flexibility to meet your needs.</p>
+            </section>
+
+            <p style="background: var(--bg-secondary); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
+                <strong>Session Duration & Rates:</strong> Clear pricing applies per 50-minute individual therapeutic session.<br>
+                <strong>Payment Terms:</strong> No online billing is processed here. Invoices are settled on the day of your session via bank money transfer or in person.<br>
+                <strong>Cancellation Windows:</strong> A standard <strong>48-hour notice</strong> is required for cancellations or reschedules.
+            </p>
+
+            <form id="bookingForm" style="margin-top: 30px;">
+                <label for="name">Your Full Name *</label>
+                <input type="text" id="name" autocomplete="off" aria-describedby="nameHelper" maxlength="100">
+                <span id="nameHelper" class="form-helper">Please enter your full name.</span>
+            
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" autocomplete="off" aria-describedby="emailHelper" maxlength="254">
+                <span id="emailHelper" class="form-helper">We will send your secure session link here.</span>
+            
+                <label for="format">Session Format *</label>
+                <select id="format" aria-describedby="formatHelper">
+                    <option value="">-- Select Format --</option>
+                    <option value="Online">Online Video (Secure Encrypted Meeting Link)</option>
+                    <option value="In-Person">In-Person (At Consultation Office)</option>
+                </select>
+                <span id="formatHelper" class="form-helper">Choose how you would prefer to meet.</span>
+            
+                <div class="grid" style="margin-top: 0;">
+                    <div>
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" aria-describedby="dateHelper">
+                        <span id="dateHelper" class="form-helper">Select your target date.</span>
+                    </div>
+                    <div>
+                        <label for="time">Time Slot *</label>
+                        <select id="time" aria-describedby="timeHelper">
+                            <option value="">-- Select Time --</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                        </select>
+                        <span id="timeHelper" class="form-helper">Select a 50-minute time block.</span>
+                    </div>
+                </div>
+            
+                <label for="notes">Briefly note what patterns you want to tackle... (Optional)</label>
+                <textarea id="notes" rows="4"></textarea>
+            
+                <div id="submitBtnWrapper" class="submit-btn-wrapper">
+                    <button type="submit" id="submitBtn" class="btn" disabled>Confirm Booking Slot</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>⚠️ <strong>Important:</strong> This website and its contact channels are not monitored 24/7 and are not equipped to handle emergencies. If you are experiencing a mental health crisis, please contact your local emergency services or a crisis hotline immediately.</p>
+    </footer>
+
+    <script src="utils.js"></script>
+    <script src="dropdown.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

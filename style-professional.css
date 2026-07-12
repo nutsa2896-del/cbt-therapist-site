@@ -1,0 +1,548 @@
+/* ============================================================================
+   PROFESSIONAL CBT SPECIALIST WEBSITE - PREMIUM BLUE THEME
+   ============================================================================ */
+
+:root {
+    /* Professional Blue Palette */
+    --bg-primary: #0F172A;        /* Deep navy - main background */
+    --bg-secondary: #1E293B;      /* Slate - secondary sections */
+    --bg-light: #F8FAFC;          /* Almost white - cards */
+    --bg-accent: #E0F2FE;         /* Sky blue - highlights */
+    
+    /* Text Colors */
+    --text-primary: #FFFFFF;      /* White on dark */
+    --text-secondary: #94A3B8;    /* Light gray */
+    --text-dark: #1E293B;         /* Dark on light */
+    
+    /* Blue Accents */
+    --accent: #0EA5E9;            /* Sky blue CTA */
+    --accent-secondary: #06B6D4;  /* Cyan */
+    --accent-dark: #0369A1;       /* Dark blue */
+    --accent-light: #38BDF8;      /* Light blue */
+    
+    /* Support */
+    --border: #334155;            /* Subtle borders */
+    --shadow: rgba(0, 0, 0, 0.2); /* Shadows */
+    --error: #EF4444;             /* Red */
+    --success: #10B981;           /* Green */
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Base Styles */
+* {
+    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px var(--shadow);
+    animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-light);
+    letter-spacing: -0.5px;
+}
+
+nav .menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a, .dropdown-trigger {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a:hover, nav a.active, .dropdown-trigger:hover {
+    color: var(--accent);
+    background-color: rgba(14, 165, 233, 0.1);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-secondary);
+    min-width: 220px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    z-index: 1;
+    margin-top: 8px;
+    animation: slideInUp 0.3s ease-out;
+}
+
+.dropdown-content a {
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    display: block;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(14, 165, 233, 0.15);
+    color: var(--accent);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #1a365d 100%);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(14, 165, 233, 0.1);
+    animation: slideInUp 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 20px;
+    letter-spacing: -1px;
+    animation: slideInLeft 0.8s ease-out 0.2s both;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    animation: slideInRight 0.8s ease-out 0.3s both;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+    color: var(--bg-primary);
+    padding: 14px 40px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+    animation: slideInUp 0.8s ease-out 0.4s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(14, 165, 233, 0.4);
+}
+
+.btn:active {
+    transform: translateY(-2px);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* Cards */
+.card {
+    background: var(--bg-secondary);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    animation: slideInUp 0.6s ease-out;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(14, 165, 233, 0.2);
+    border-color: var(--accent);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+h2 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-top: 60px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--accent-light);
+}
+
+/* Forms */
+form {
+    background: var(--bg-secondary);
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 8px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background-color: rgba(14, 165, 233, 0.05);
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Form Helper Text */
+.form-helper {
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 6px;
+    color: var(--text-secondary);
+    min-height: 1.2rem;
+}
+
+.form-field-valid {
+    border-color: var(--success) !important;
+}
+
+.form-field-valid-helper {
+    color: var(--success) !important;
+}
+
+.form-field-invalid {
+    border-color: var(--error) !important;
+}
+
+.form-field-invalid-helper {
+    color: var(--error) !important;
+}
+
+/* Footer */
+footer {
+    margin-top: 100px;
+    background: var(--bg-secondary);
+    padding: 40px 10%;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+/* FAQ Section */
+.faq-block {
+    margin-bottom: 16px;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.faq-toggle {
+    width: 100%;
+    text-align: left;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-light);
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-toggle:hover {
+    background: var(--bg-primary);
+    border-color: var(--accent);
+    transform: translateX(4px);
+}
+
+.faq-answer {
+    display: none;
+    background: var(--bg-primary);
+    border-radius: 0 0 8px 8px;
+    border: 2px solid var(--border);
+    border-top: none;
+    padding: 20px;
+    color: var(--text-secondary);
+}
+
+.faq-block.active .faq-answer {
+    display: block;
+    animation: slideInUp 0.3s ease-out;
+}
+
+.faq-block.active .faq-toggle {
+    border-radius: 8px 8px 0 0;
+    border-color: var(--accent);
+    background: var(--bg-secondary);
+}
+
+.icon-arrow {
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-block.active .icon-arrow {
+    transform: rotate(180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    nav .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .hero {
+        padding: 60px 20px;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Crisis Box */
+.crisis-box {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 2px solid var(--error);
+    color: #FECACA;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
