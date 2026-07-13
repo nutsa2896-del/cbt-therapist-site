@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
     <title>Contact</title>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -37,13 +38,18 @@
         <div class="container">
             <h2>General Inquiries</h2>
             <form id="contactForm">
+                <!-- Honeypot field - hidden from humans, catches bots -->
+                <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+                    <label for="contact-website">Leave this field empty</label>
+                    <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
 
                 <label for="c-name">Your Full Name *</label>
-                <input type="text" id="c-name" autocomplete="off" aria-describedby="c-nameHelper" maxlength="100" required>
+                <input type="text" id="c-name" autocomplete="name" aria-describedby="c-nameHelper" maxlength="100" required>
                 <span id="c-nameHelper" class="form-helper"></span>
 
                 <label for="c-email">Email Address *</label>
-                <input type="email" id="c-email" autocomplete="off" aria-describedby="c-emailHelper" maxlength="254" required>
+                <input type="email" id="c-email" autocomplete="email" aria-describedby="c-emailHelper" maxlength="254" required>
                 <span id="c-emailHelper" class="form-helper"></span>
 
                 <label for="c-msg">Message *</label>

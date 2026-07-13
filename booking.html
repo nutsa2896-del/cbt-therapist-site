@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
     <title>Booking & Fees</title>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -47,16 +48,22 @@
             </p>
 
             <form id="bookingForm" style="margin-top: 30px;">
+                <!-- Honeypot field - hidden from humans, catches bots -->
+                <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+                    <label for="booking-website">Leave this field empty</label>
+                    <input type="text" id="booking-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
                 <label for="name">Your Full Name *</label>
-                <input type="text" id="name" autocomplete="off" aria-describedby="nameHelper" maxlength="100">
+                <input type="text" id="name" autocomplete="name" aria-describedby="nameHelper" maxlength="100" required>
                 <span id="nameHelper" class="form-helper">Please enter your full name.</span>
             
                 <label for="email">Email Address *</label>
-                <input type="email" id="email" autocomplete="off" aria-describedby="emailHelper" maxlength="254">
+                <input type="email" id="email" autocomplete="email" aria-describedby="emailHelper" maxlength="254" required>
                 <span id="emailHelper" class="form-helper">We will send your secure session link here.</span>
             
                 <label for="format">Session Format *</label>
-                <select id="format" aria-describedby="formatHelper">
+                <select id="format" aria-describedby="formatHelper" required>
                     <option value="">-- Select Format --</option>
                     <option value="Online">Online Video (Secure Encrypted Meeting Link)</option>
                     <option value="In-Person">In-Person (At Consultation Office)</option>
@@ -66,12 +73,12 @@
                 <div class="grid" style="margin-top: 0;">
                     <div>
                         <label for="date">Preferred Date *</label>
-                        <input type="date" id="date" aria-describedby="dateHelper">
+                        <input type="date" id="date" aria-describedby="dateHelper" required>
                         <span id="dateHelper" class="form-helper">Select your target date.</span>
                     </div>
                     <div>
                         <label for="time">Time Slot *</label>
-                        <select id="time" aria-describedby="timeHelper">
+                        <select id="time" aria-describedby="timeHelper" required>
                             <option value="">-- Select Time --</option>
                             <option value="09:00">09:00 AM</option>
                             <option value="11:00">11:00 AM</option>

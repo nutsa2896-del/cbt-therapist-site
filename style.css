@@ -341,32 +341,6 @@ main {
     color: var(--text-primary);
 }
 
-.hero-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-primary);
-    font-weight: 600;
-    margin: 0 0 20px;
-    line-height: 1.6;
-}
-
-.hero-quote {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    font-style: italic;
-    margin: 20px 0;
-    padding: 15px 0;
-    border-left: 3px solid var(--accent);
-    padding-left: 15px;
-    line-height: 1.7;
-}
-
-.hero-description {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin: 20px 0;
-    line-height: 1.7;
-}
-
 /* Responsive - Stack on mobile */
 @media (max-width: 768px) {
     .hero {
@@ -382,13 +356,6 @@ main {
 
     .hero-right {
         text-align: center;
-    }
-
-    .hero-quote {
-        border-left: none;
-        border-top: 3px solid var(--accent);
-        padding-top: 15px;
-        padding-left: 0;
     }
 
     .hero-left,
@@ -849,20 +816,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 /* Firefox calendar styling */
 input[type="date"] {
     color: var(--text-primary);
-}
-
-/* ============================================================================
-   CRISIS BOX
-   ============================================================================ */
-
-.crisis-box {
-    background-color: rgba(239, 68, 68, 0.1);
-    border: 2px solid var(--error);
-    color: #FECACA;
-    padding: 15px;
-    border-radius: 8px;
-    font-weight: 500;
-    margin-bottom: 20px;
 }
 
 /* ============================================================================
