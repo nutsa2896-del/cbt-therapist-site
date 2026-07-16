@@ -17,10 +17,10 @@
 // CONFIGURATION - Update these values after setup
 // ============================================================
 var CONFIG = {
-  SPREADSHEET_ID: 'YOUR_SPREADSHEET_ID_HERE',  // Google Sheet ID from the URL
-  CALENDAR_ID: 'primary',                       // 'primary' or specific calendar email
+  SPREADSHEET_ID: '1YCQe3ozhe1IZ983-cd-QcV0uQyUI2ZXWv9qd7jc43lg',
+  CALENDAR_ID: 'primary',
   THERAPIST_NAME: 'Magda',
-  THERAPIST_EMAIL: 'YOUR_EMAIL_HERE',           // For notification copies
+  THERAPIST_EMAIL: 'info.talktomagda@gmail.com',
   BOOKING_SHEET_NAME: 'Bookings',
   DAYS_AHEAD: 30,                               // How far ahead to show availability
   SESSION_DURATION_MINUTES: 50,
