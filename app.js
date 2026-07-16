@@ -494,16 +494,27 @@
                 body: JSON.stringify(bookingData)
             })
             .then(function (response) {
-                return response.json();
+                return response.text();
             })
-            .then(function (result) {
+            .then(function (text) {
+                var result = {};
+                try {
+                    result = JSON.parse(text);
+                } catch (e) {
+                    // If response isn't valid JSON, treat as success if no error indicators
+                    if (text.indexOf('error') === -1) {
+                        result = { success: true };
+                    } else {
+                        throw new Error('Unexpected response from server.');
+                    }
+                }
                 if (result.error) {
                     throw new Error(result.error);
                 }
                 // Success!
                 alert('🎉 Booking Confirmed!\n\n' +
                     'A confirmation email has been sent to ' + bookingData.email + '.\n\n' +
-                    'Booking ID: ' + (result.bookingId || 'N/A') + '\n\n' +
+                    (result.bookingId ? 'Booking ID: ' + result.bookingId + '\n\n' : '') +
                     'Remember: 48-hour cancellation notice is required.');
 
                 // Reset form

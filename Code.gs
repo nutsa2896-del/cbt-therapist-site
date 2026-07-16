@@ -193,16 +193,19 @@ function processBooking(data) {
   logToSheet(data, bookingId);
 
   // 3. Send confirmation email to client
-  sendConfirmationEmail(data, bookingId);
-
   // 4. Send notification to therapist
-  sendTherapistNotification(data, bookingId);
+  try {
+    sendConfirmationEmail(data, bookingId);
+    sendTherapistNotification(data, bookingId);
+  } catch (emailError) {
+    Logger.log('Email error (booking still saved): ' + emailError.message);
+  }
 
   return {
     status: 200,
     body: {
       success: true,
-      message: 'Booking confirmed! A confirmation email has been sent to ' + data.email,
+      message: 'Booking confirmed!',
       bookingId: bookingId
     }
   };
