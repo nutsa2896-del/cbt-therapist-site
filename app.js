@@ -15,7 +15,7 @@
         // CONFIGURATION
         // ============================================================
         // IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
-        var APPS_SCRIPT_URL = 'YOUR_DEPLOYED_APPS_SCRIPT_URL_HERE';
+        var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzjh5fkxQJ52gp-ofxTb6y_KhDo931czgk6QZS-jp-N1WQbktBPVYqrRcT0cQkOEDOv/exec';
 
         var RATE_LIMIT_COOLDOWN = 30000; // 30 seconds between submissions
         var MAX_SUBMISSIONS_PER_SESSION = 5;
