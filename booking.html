@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com">
+    <title>Booking & Fees</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <nav>
+        <div class="logo"><strong>Magda</strong> Therapy</div>
+        <div class="menu">
+            <a href="index.html" class="nav-link" data-page="index">Home</a>
+            <div class="dropdown">
+                <span class="dropdown-trigger">Meet Magda ▾</span>
+                <div class="dropdown-content">
+                    <a href="who-am-i.html" class="nav-link" data-page="who-am-i">Who am I and how do we work</a>
+                    <a href="off-the-clock.html" class="nav-link" data-page="off-the-clock">Off the clock</a>
+                    <a href="education.html" class="nav-link" data-page="education">Education & training</a>
+                    <a href="research.html" class="nav-link" data-page="research">Research and publications</a>
+                </div>
+            </div>
+            <a href="focus.html" class="nav-link" data-page="focus">Challenges We Can Work On Together</a>
+            <a href="expats.html" class="nav-link" data-page="expats">For expats</a>
+            <a href="faqs.html" class="nav-link" data-page="faqs">FAQs</a>
+            <a href="booking.html" class="nav-link" data-page="booking">Booking & Fees</a>
+            <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <!-- FAQ Disclaimer -->
+            <div id="faqDisclaimer" class="faq-disclaimer">
+                <div class="faq-disclaimer-content">
+                    <p><strong>Before you book:</strong> Many common questions about sessions, pricing, cancellations, and how therapy works are already answered on our FAQ page.</p>
+                    <div class="faq-disclaimer-actions">
+                        <a href="faqs.html" class="btn btn-primary">Read FAQs First</a>
+                        <button type="button" id="dismissDisclaimer" class="btn btn-dismiss">Continue to Booking</button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="booking-highlight">
+                <h2>Book Your Therapeutic Session</h2>
+                <p>Take the first step toward meaningful change. Reserve your personalized CBT session with flexibility to meet your needs.</p>
+            </section>
+
+            <p style="background: var(--bg-secondary); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
+                <strong>Session Duration & Rates:</strong> Clear pricing applies per 50-minute individual therapeutic session.<br>
+                <strong>Payment Terms:</strong> No online billing is processed here. Invoices are settled on the day of your session via bank money transfer or in person.<br>
+                <strong>Cancellation Windows:</strong> A standard <strong>48-hour notice</strong> is required for cancellations or reschedules.
+            </p>
+
+            <form id="bookingForm" style="margin-top: 30px;">
+                <!-- Honeypot field - hidden from humans, catches bots -->
+                <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+                    <label for="booking-website">Leave this field empty</label>
+                    <input type="text" id="booking-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <label for="name">Your Full Name *</label>
+                <input type="text" id="name" autocomplete="name" aria-describedby="nameHelper" maxlength="100" required>
+                <span id="nameHelper" class="form-helper">Please enter your full name.</span>
+            
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" autocomplete="email" aria-describedby="emailHelper" maxlength="254" required>
+                <span id="emailHelper" class="form-helper">We will send your booking confirmation here.</span>
+            
+                <label for="format">Session Format *</label>
+                <select id="format" aria-describedby="formatHelper" required>
+                    <option value="">-- Select Format --</option>
+                    <option value="Online">Online Video (Secure Encrypted Meeting Link)</option>
+                    <option value="In-Person">In-Person (At Consultation Office)</option>
+                </select>
+                <span id="formatHelper" class="form-helper">Choose how you would prefer to meet.</span>
+
+                <!-- Dynamic Availability Section -->
+                <div id="availabilitySection" class="availability-section">
+                    <label>Select Date & Time *</label>
+
+                    <!-- Loading state -->
+                    <div id="slotsLoading" class="slots-loading">
+                        <div class="slots-spinner"></div>
+                        <p>Loading available times...</p>
+                    </div>
+
+                    <!-- Error state -->
+                    <div id="slotsError" class="slots-error" style="display: none;">
+                        <p>⚠️ Unable to load available times. Please try again.</p>
+                        <button type="button" id="retryLoadSlots" class="btn btn-dismiss">Retry</button>
+                    </div>
+
+                    <!-- No slots state -->
+                    <div id="slotsEmpty" class="slots-empty" style="display: none;">
+                        <p>No available slots in the next 30 days. Please check back soon or <a href="contact.html">contact us</a> directly.</p>
+                    </div>
+
+                    <!-- Date picker -->
+                    <div id="datePickerContainer" class="date-picker-container" style="display: none;">
+                        <div id="datePicker" class="date-picker" role="listbox" aria-label="Available dates"></div>
+                    </div>
+
+                    <!-- Time slots for selected date -->
+                    <div id="timePickerContainer" class="time-picker-container" style="display: none;">
+                        <p class="time-picker-label">Available times on <strong id="selectedDateLabel"></strong>:</p>
+                        <div id="timePicker" class="time-picker" role="listbox" aria-label="Available times"></div>
+                    </div>
+
+                    <!-- Hidden inputs to store selected values -->
+                    <input type="hidden" id="date" name="date" required>
+                    <input type="hidden" id="time" name="time" required>
+                    <span id="slotHelper" class="form-helper">Select a date, then choose a time slot.</span>
+                </div>
+            
+                <label for="notes">Briefly note what patterns you want to tackle... (Optional)</label>
+                <textarea id="notes" rows="4" maxlength="1000"></textarea>
+            
+                <div id="submitBtnWrapper" class="submit-btn-wrapper">
+                    <button type="submit" id="submitBtn" class="btn" disabled>Confirm Booking Slot</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>⚠️ <strong>Important:</strong> This website and its contact channels are not monitored 24/7 and are not equipped to handle emergencies. If you are experiencing a mental health crisis, please contact your local emergency services or a crisis hotline immediately.</p>
+    </footer>
+
+    <script src="utils.js"></script>
+    <script src="dropdown.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <title>Contact</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <nav>
+        <div class="logo"><strong>Magda</strong> Therapy</div>
+        <div class="menu">
+            <a href="index.html" class="nav-link" data-page="index">Home</a>
+            <div class="dropdown">
+                <span class="dropdown-trigger">Meet Magda ▾</span>
+                <div class="dropdown-content">
+                    <a href="who-am-i.html" class="nav-link" data-page="who-am-i">Who am I and how do we work</a>
+                    <a href="off-the-clock.html" class="nav-link" data-page="off-the-clock">Off the clock</a>
+                    <a href="education.html" class="nav-link" data-page="education">Education & training</a>
+                    <a href="research.html" class="nav-link" data-page="research">Research and publications</a>
+                </div>
+            </div>
+            <a href="focus.html" class="nav-link" data-page="focus">Challenges We Can Work On Together</a>
+            <a href="expats.html" class="nav-link" data-page="expats">For expats</a>
+            <a href="faqs.html" class="nav-link" data-page="faqs">FAQs</a>
+            <a href="booking.html" class="nav-link" data-page="booking">Booking & Fees</a>
+            <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <h2>General Inquiries</h2>
+            <form id="contactForm">
+                <!-- Honeypot field - hidden from humans, catches bots -->
+                <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+                    <label for="contact-website">Leave this field empty</label>
+                    <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <label for="c-name">Your Full Name *</label>
+                <input type="text" id="c-name" autocomplete="name" aria-describedby="c-nameHelper" maxlength="100" required>
+                <span id="c-nameHelper" class="form-helper"></span>
+
+                <label for="c-email">Email Address *</label>
+                <input type="email" id="c-email" autocomplete="email" aria-describedby="c-emailHelper" maxlength="254" required>
+                <span id="c-emailHelper" class="form-helper"></span>
+
+                <label for="c-msg">Message *</label>
+                <textarea id="c-msg" rows="5" aria-describedby="c-msgHelper" maxlength="5000" required></textarea>
+                <span id="c-msgHelper" class="form-helper"></span>
+
+                <button type="submit" id="c-submitBtn" class="btn" style="margin-top: 20px; width: 100%;">Send Message</button>
+            </form>
+
+            <h2>Office Location Info</h2>
+            <div class="card" style="margin-top: 25px;">
+                <p><strong>Physical Address:</strong> Tbilisi, Georgia</p>
+                <p><strong>Transit & Parking:</strong> Easy access via public transit. Secure parking available nearby for face-to-face appointments.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>⚠️ <strong>Important:</strong> This website and its contact channels are not monitored 24/7 and are not equipped to handle emergencies. If you are experiencing a mental health crisis, please contact your local emergency services or a crisis hotline immediately.</p>
+    </footer>
+
+    <script src="utils.js"></script>
+    <script src="dropdown.js"></script>
+    <script src="contact-form.js"></script>
+</body>
+</html>
